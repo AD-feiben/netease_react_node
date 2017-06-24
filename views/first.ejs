@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1>Welcome my first page</h1>
+    <% if (arr.length) { %>
+      <ul>
+        <% arr.forEach(function(item, index){ %>
+          <li><%= item %></li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </body>
+</html>

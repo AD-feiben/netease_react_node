@@ -28,6 +28,7 @@ router.get('/crawler', function (req, res, next) {
   })
 })
 
+// 搜索歌曲、获取歌曲详情
 router.get('/search', function(req, res) {
   var url = URL.parse(req.url, true);
   var wd = url.query.wd;
@@ -45,6 +46,23 @@ router.get('/search', function(req, res) {
       res.end(resStr);
     })
   }
+})
+
+// 获取热门歌单
+// router.get('/hot', function (req, res) {
+//   var url = URL.parse(req.url, true);
+//   var limit = url.query.limit || 35;
+//   var offset = url.query.offset || 0;
+// })
+
+// 根据歌单id获取歌单详情
+router.get('/songList', function (req, res) {
+  var url = URL.parse(req.url, true);
+  var listId = url.query.listId;
+  res.writeHead(200, {'Content-Type': 'text/plain;charset=utf-8', 'Access-Control-Allow-Origin': '*'});
+  nm.playlist(listId).then(data => {
+    res.end(JSON.stringify(data))
+  })
 })
 
 module.exports = router;

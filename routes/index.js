@@ -48,16 +48,6 @@ router.get('/search', function(req, res) {
   }
 })
 
-// 查询歌词
-router.get('/lyric', function (req, res) {
-  var url = URL.parse(req.url, true);
-  var id = url.query.id;
-  res.writeHead(200, {'Content-Type': 'text/plain;charset=utf-8', 'Access-Control-Allow-Origin': '*'});
-  nm.lyric(id).then(data => {
-    res.end(JSON.stringify(data))
-  })
-})
-
 // 获取热门歌单
 // router.get('/hot', function (req, res) {
 //   var url = URL.parse(req.url, true);
